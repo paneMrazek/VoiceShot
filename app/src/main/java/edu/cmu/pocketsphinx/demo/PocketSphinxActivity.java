@@ -73,6 +73,8 @@ public class PocketSphinxActivity extends Activity implements
     private static final String TWOMISS_SEARCH = "red";
     private static final String THREEMAKE_SEARCH = "blue";
     private static final String THREEMISS_SEARCH = "yellow";
+    private static final String FREEMAKE_SEARCH = "orange";
+    private static final String FREEMISS_SEARCH = "purple";
 
 
     /* Used to handle permission request */
@@ -176,6 +178,10 @@ public class PocketSphinxActivity extends Activity implements
             makeThreeShot();
         else if(text.equals(THREEMISS_SEARCH))
             missThreeShot();
+        else if(text.equals(FREEMAKE_SEARCH))
+            setNumFreeMakes();
+        else if(text.equals(FREEMISS_SEARCH))
+            setNumFreeMisses();
 
 
         switchSearch(KWS_SEARCH);
@@ -286,6 +292,8 @@ public class PocketSphinxActivity extends Activity implements
     int numTwoMisses = 0;
     int numThreeMakes = 0;
     int numThreeMisses = 0;
+    int numFreeMakes = 0;
+    int numFreeMisses = 0;
 
     void makeTwoShot(){
         numTwoMakes +=1;
@@ -344,6 +352,27 @@ public class PocketSphinxActivity extends Activity implements
         float shotPercentage = (float) (numTwoMakes + numThreeMakes) / (numTwoMakes + numThreeMakes + numTwoMisses + numThreeMisses);
         shotPercentage = shotPercentage * 100;
         TextView textView2 = (TextView) findViewById(R.id.textView8);
+        textView2.setText(String.format("%.2f", shotPercentage));
+    }
+
+    void setNumFreeMakes(){
+        numFreeMakes +=1;
+        displayFree();
+    }
+
+    void setNumFreeMisses(){
+        numFreeMisses +=1;
+        displayFree();
+    }
+
+    void displayFree(){
+        TextView textView = (TextView) findViewById(R.id.textView15);
+        textView.setText(Integer.toString(numFreeMakes)+"-"+Integer.toString(numFreeMakes + numFreeMisses));
+
+        //set tot percentage
+        float shotPercentage = (float) (numFreeMakes) / (numFreeMakes + numFreeMisses);
+        shotPercentage = shotPercentage * 100;
+        TextView textView2 = (TextView) findViewById(R.id.textView16);
         textView2.setText(String.format("%.2f", shotPercentage));
     }
 
