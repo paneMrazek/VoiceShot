@@ -64,10 +64,15 @@ public class PocketSphinxActivity extends Activity implements
 //    private static final String MENU_SEARCH = "menu";
 
     /* Keyword we are looking for to activate menu */
-    private static final String TWOMAKE_SEARCH = "twomake";
-    private static final String TWOMISS_SEARCH = "misstwo";
-    private static final String THREEMAKE_SEARCH = "threemake";
-    private static final String THREEMISS_SEARCH = "miss three";
+//    private static final String TWOMAKE_SEARCH = "twomake";
+//    private static final String TWOMISS_SEARCH = "misstwo";
+//    private static final String THREEMAKE_SEARCH = "threemake";
+//    private static final String THREEMISS_SEARCH = "miss three";
+
+    private static final String TWOMAKE_SEARCH = "green";
+    private static final String TWOMISS_SEARCH = "red";
+    private static final String THREEMAKE_SEARCH = "blue";
+    private static final String THREEMISS_SEARCH = "yellow";
 
 
     /* Used to handle permission request */
